@@ -5,10 +5,6 @@ resource "aws_s3_bucket" "bucket" {
     enabled = true
   }
 
-  lifecycle_rule {
-    id      = "log"
-    enabled = true
-
     transition {
       days          = 30
       storage_class = "STANDARD_IA"
@@ -22,7 +18,7 @@ resource "aws_s3_bucket" "bucket" {
 
 resource "aws_iam_policy" "s3_access_policy" {
   name        = "${var.bucket_name}-access-policy"
-  description = "Policy to allow specific user access to a folder in the bucket"
+  description = "Policy to allow user access to a folder in the bucket"
   policy      = data.aws_iam_policy_document.s3_access_policy.json
 }
 
