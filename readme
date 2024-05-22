@@ -1,7 +1,7 @@
 #usage: To use this module, you would create a separate Terraform configuration that calls this module
 #This setup creates an S3 bucket, an IAM policy that grants the specified user access to a particular folder in the bucket, and attaches this policy to the user
 
-module "s3_user_access" {
+module "s3_access" {
   source      = "./path/to/terraform-s3-user-access"
   bucket_name = "my-unique-s3-bucket-name"
   folder_name = "my-folder"
